@@ -162,6 +162,8 @@ struct iovec
   void *iov_base;        
 };
 
+#ifndef DECLARED_IOVEC
+#define DECLARED_IOVEC
 int writev(SOCKET sock, struct iovec *iov, int nvecs)
 {
   DWORD ret;
@@ -186,5 +188,6 @@ int readv(SOCKET sock, struct iovec *iov, int nvecs)
   }
   return -1;
 }
+#endif
 
 #endif//win32_COMPAT_H_
